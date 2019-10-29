@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.0": {}
+    ".NETCoreApp,Version=v3.0": {
+      "MedicinePlanner.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/MedicinePlanner.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MedicinePlanner.Core.dll": {}
+        }
+      },
+      "MedicinePlanner.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "MedicinePlanner.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MedicinePlanner.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MedicinePlanner.Infrastructure.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "MedicinePlanner.Core/1.0.0": {
+      "type": "project",
+      "path": "../MedicinePlanner.Core/MedicinePlanner.Core.csproj",
+      "msbuildProject": "../MedicinePlanner.Core/MedicinePlanner.Core.csproj"
+    },
+    "MedicinePlanner.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../MedicinePlanner.Infrastructure/MedicinePlanner.Infrastructure.csproj",
+      "msbuildProject": "../MedicinePlanner.Infrastructure/MedicinePlanner.Infrastructure.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.0": []
+    ".NETCoreApp,Version=v3.0": [
+      "MedicinePlanner.Infrastructure >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Pawel\\.nuget\\packages\\": {},
@@ -36,7 +73,11 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Pawel\\Desktop\\GIT\\MedicinePlanner\\src\\MedicinePlanner.Infrastructure\\MedicinePlanner.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Pawel\\Desktop\\GIT\\MedicinePlanner\\src\\MedicinePlanner.Infrastructure\\MedicinePlanner.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
