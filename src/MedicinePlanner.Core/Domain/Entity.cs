@@ -1,6 +1,6 @@
 using System;
 
-namespace MedicinePlanner.Api.Controllers
+namespace MedicinePlanner.Core.Domain
 {
     public class Entity
     {
