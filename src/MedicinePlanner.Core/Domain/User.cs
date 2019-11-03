@@ -16,20 +16,21 @@ namespace MedicinePlanner.Core.Domain
         public string Email { get; protected set; }
         public string Password { get; protected set; }
 
-        //TODO - add salt for password
+        public string Salt { get; protected set; }
         public DateTime CreatedAt { get; protected set; }
 
         protected User() 
         {
         }
 
-        public User(Guid id, string email, string password, string name, string role)
+        public User(Guid id, string email, string password, string salt, string name, string role)
         {
             Id = id;
             SetEmail(email);
             SetPassword(password);
             SetName(name);
             SetRole(role);
+            Salt = salt;
             CreatedAt = DateTime.UtcNow;
         }
 
@@ -50,7 +51,7 @@ namespace MedicinePlanner.Core.Domain
                 throw new Exception("Email can not be empty.");
             }
 
-            Email = email;
+            Email = email.ToLowerInvariant();
         }
 
         public void SetPassword(string password) 
