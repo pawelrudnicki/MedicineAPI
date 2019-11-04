@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using MedicinePlanner.Infrastructure.Commands.Users;
 using MedicinePlanner.Infrastructure.DTO;
 using MedicinePlanner.Infrastructure.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace MedicinePlanner.Api.Controllers
 {
     [Route("[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : Controller
     {
         private readonly IUserService _userService;
         public UsersController(IUserService userService)
@@ -18,16 +15,13 @@ namespace MedicinePlanner.Api.Controllers
             _userService = userService;
         }
 
-        // [HttpGet("{email}")]
-        // public async Task<IActionResult> Get(string email)
-        // {
-        //     var user = await _userService.GetAsync(email);
-        //     if (user == null)
-        //     {
-        //         return NotFound();
-        //     }
+        [HttpGet("{email}")]
+        public async Task<UserDto> Get(string email)
+            => await _userService.GetAsync(email);
 
-        //     return Json(user);
-        // }
+        [HttpPost]
+        public async Task Post([FromBody]CreateUser request)
+            => await _userService.RegisterAsync(request.Email, request.Password, request.Name, request.Role);
+        
     }
 }

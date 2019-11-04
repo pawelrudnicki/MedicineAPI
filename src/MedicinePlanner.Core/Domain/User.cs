@@ -7,7 +7,7 @@ namespace MedicinePlanner.Core.Domain
     {
         private static List<string> _roles = new List<string>
         {
-            "admin", "patient", "doctor"
+            "admin", "patient", "doctor", "user"
         };
         public Guid Id { get; protected set; }
         public string Role { get; protected set; }

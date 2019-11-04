@@ -6,7 +6,7 @@ namespace MedicinePlanner.Infrastructure.Services
 {
     public interface IUserService
     {
-        Task GetAsync(string email);
+        Task <UserDto> GetAsync(string email);
         Task RegisterAsync(string email, string password, string name, string role);
     }
 }

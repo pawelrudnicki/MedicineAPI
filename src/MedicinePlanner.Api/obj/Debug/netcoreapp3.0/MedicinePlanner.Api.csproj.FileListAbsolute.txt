@@ -21,3 +21,4 @@ C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Api\obj\Debug\net
 C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Api\obj\Debug\netcoreapp3.0\MedicinePlanner.Api.csproj.CopyComplete
 C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Api\obj\Debug\netcoreapp3.0\MedicinePlanner.Api.dll
 C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Api\obj\Debug\netcoreapp3.0\MedicinePlanner.Api.pdb
+C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Api\bin\Debug\netcoreapp3.0\AutoMapper.dll

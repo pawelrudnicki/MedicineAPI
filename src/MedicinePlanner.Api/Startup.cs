@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MedicinePlanner.Core.Repositories;
+using MedicinePlanner.Infrastructure.Mappers;
 using MedicinePlanner.Infrastructure.Repositories;
 using MedicinePlanner.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
@@ -30,6 +31,7 @@ namespace MedicinePlanner.Api
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUserService, UserService>();
+            services.AddSingleton(AutoMapperConfig.Initialize());
             services.AddMvc();
             //services.AddControllers();
         }

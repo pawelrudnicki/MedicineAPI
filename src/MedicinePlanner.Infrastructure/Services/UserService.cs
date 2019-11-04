@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using MedicinePlanner.Core.Domain;
 using MedicinePlanner.Core.Repositories;
 using MedicinePlanner.Infrastructure.DTO;
@@ -9,16 +10,18 @@ namespace MedicinePlanner.Infrastructure.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepostory;
+        private readonly IMapper _mapper;
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, IMapper mapper)
         {
             _userRepostory = userRepository;
+            _mapper = mapper;
         }
 
-        public async Task GetAsync(string email)
+        public async Task<UserDto> GetAsync(string email)
         {
             var user = await _userRepostory.GetAsync(email);
-            //return user DTO object
+            return _mapper.Map<User, UserDto>(user);
         }
 
         public async Task RegisterAsync(string email, string password, string name, string role)
