@@ -3,29 +3,29 @@ using System.Collections.Generic;
 
 namespace MedicinePlanner.Core.Domain
 {
-    public class User : Entity
+    public class User
     {
         private static List<string> _roles = new List<string>
         {
             "admin", "patient", "doctor"
         };
-
+        public Guid Id { get; protected set; }
         public string Role { get; protected set; }
         public string Name { get; protected set; }
         public string FullName { get; protected set; }
         public string Email { get; protected set; }
         public string Password { get; protected set; }
-
         public string Salt { get; protected set; }
         public DateTime CreatedAt { get; protected set; }
+        public DateTime UpdatedAt { get; protected set; }
 
         protected User() 
         {
         }
 
-        public User(Guid id, string email, string password, string salt, string name, string role)
+        public User(string email, string password, string salt, string name, string role)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             SetEmail(email);
             SetPassword(password);
             SetName(name);
@@ -41,7 +41,8 @@ namespace MedicinePlanner.Core.Domain
                 throw new Exception("Name can not be empty.");
             }
 
-            Name = name;
+            Name = name.ToLowerInvariant();
+            UpdatedAt = DateTime.UtcNow;
         }
 
         public void SetEmail(string email) 
@@ -49,6 +50,10 @@ namespace MedicinePlanner.Core.Domain
             if (string.IsNullOrWhiteSpace(email))
             {
                 throw new Exception("Email can not be empty.");
+            }
+            if (Email == email)
+            {
+                return;
             }
 
             Email = email.ToLowerInvariant();
@@ -60,15 +65,17 @@ namespace MedicinePlanner.Core.Domain
             {
                 throw new Exception("Password can not be empty.");
             }
-
             if (password.Length < 4)
             {
                 throw new Exception("Password must contain at least 4 characters.");
             }
-
             if (password.Length > 20) 
             {
                 throw new Exception("Password can not contain more than 100 characters.");
+            }
+            if (Password == password)
+            {
+                return;
             }
 
             Password = password;

@@ -1,10 +1,12 @@
 using System;
 using System.Threading.Tasks;
+using MedicinePlanner.Infrastructure.DTO;
 
 namespace MedicinePlanner.Infrastructure.Services
 {
     public interface IUserService
     {
-         Task RegisterAsync(Guid userId, string email, string password, string salt, string name, string role);
+        Task GetAsync(string email);
+        Task RegisterAsync(string email, string password, string name, string role);
     }
 }
