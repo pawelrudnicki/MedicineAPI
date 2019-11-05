@@ -107,6 +107,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Autofac": {
+              "target": "Package",
+              "version": "[4.9.4, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

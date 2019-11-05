@@ -10,11 +10,20 @@
       "MedicinePlanner.Infrastructure/1.0.0": {
         "dependencies": {
           "AutoMapper": "9.0.0",
+          "Autofac": "4.9.4",
           "MedicinePlanner.Core": "1.0.0",
           "NETStandard.Library": "2.0.3"
         },
         "runtime": {
           "MedicinePlanner.Infrastructure.dll": {}
+        }
+      },
+      "Autofac/4.9.4": {
+        "runtime": {
+          "lib/netstandard2.0/Autofac.dll": {
+            "assemblyVersion": "4.9.4.0",
+            "fileVersion": "4.9.4.0"
+          }
         }
       },
       "AutoMapper/9.0.0": {
@@ -129,6 +138,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Autofac/4.9.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dYiDG4yoV7GDCoOc66d1sqMmg2gwDyomHKgATuMfhFzYxVpWEltToHVHXI3I9vOEvIXE55S4OZPY0ldiZmZtpA==",
+      "path": "autofac/4.9.4",
+      "hashPath": "autofac.4.9.4.nupkg.sha512"
     },
     "AutoMapper/9.0.0": {
       "type": "package",
