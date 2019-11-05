@@ -1,5 +1,6 @@
 using Autofac;
 using MedicinePlanner.Core.Repositories;
+using MedicinePlanner.Infrastructure.IoC.Modules;
 using MedicinePlanner.Infrastructure.Mappers;
 using MedicinePlanner.Infrastructure.Repositories;
 using MedicinePlanner.Infrastructure.Services;
@@ -42,6 +43,12 @@ namespace MedicinePlanner.Api
             services.AddMvc();
             services.AddOptions();
             //services.AddControllers(); //older than obove scoped's
+
+        }
+
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule<CommandModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
