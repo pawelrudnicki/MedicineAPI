@@ -19,6 +19,9 @@ namespace MedicinePlanner.Api
         //     Configuration = configuration;
         // }
 
+        public IConfiguration Configuration { get; private set; }
+        public ILifetimeScope AutofacContainer { get; private set; }
+
         public Startup(IHostEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -28,9 +31,6 @@ namespace MedicinePlanner.Api
                 .AddEnvironmentVariables();
             this.Configuration = builder.Build();
         }
-
-        public IConfiguration Configuration { get; private set; }
-        public ILifetimeScope AutofacContainer { get; private set; }
     
 
         // This method gets called by the runtime. Use this method to add services to the container.
