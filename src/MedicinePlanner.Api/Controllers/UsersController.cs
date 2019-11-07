@@ -3,6 +3,7 @@ using MedicinePlanner.Infrastructure.Commands;
 using MedicinePlanner.Infrastructure.Commands.Users;
 using MedicinePlanner.Infrastructure.DTO;
 using MedicinePlanner.Infrastructure.Services;
+using MedicinePlanner.Infrastructure.Settings;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicinePlanner.Api.Controllers
@@ -12,8 +13,10 @@ namespace MedicinePlanner.Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly ICommandDispatcher _commandDispatcher;
-        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher)
+        private readonly GeneralSettings _settings;
+        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher, GeneralSettings settings)
         {
+            _settings = settings;
             _userService = userService;
             _commandDispatcher = commandDispatcher;
         }
