@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 
 namespace MedicinePlanner.Api
 {
@@ -49,6 +48,7 @@ namespace MedicinePlanner.Api
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterModule<CommandModule>();
+            builder.RegisterModule(new SettingsModule(Configuration));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
