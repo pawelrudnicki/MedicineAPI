@@ -13,10 +13,8 @@ namespace MedicinePlanner.Api.Controllers
     {
         private readonly IUserService _userService;
         private readonly ICommandDispatcher _commandDispatcher;
-        private readonly GeneralSettings _settings;
-        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher, GeneralSettings settings)
+        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher)
         {
-            _settings = settings;
             _userService = userService;
             _commandDispatcher = commandDispatcher;
         }
