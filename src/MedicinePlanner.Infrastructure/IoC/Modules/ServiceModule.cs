@@ -21,6 +21,10 @@ namespace MedicinePlanner.Infrastructure.IoC.Modules
             builder.RegisterType<Encypter>()
                 .As<IEncrypter>()
                 .SingleInstance();
+
+            builder.RegisterType<JwtHandler>()
+                .As<IJwtHandler>()
+                .SingleInstance();
         }
     }
 }
