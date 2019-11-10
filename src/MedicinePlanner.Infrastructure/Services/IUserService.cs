@@ -8,5 +8,6 @@ namespace MedicinePlanner.Infrastructure.Services
     {
         Task <UserDto> GetAsync(string email);
         Task RegisterAsync(string email, string password, string name, string role);
+        Task LoginAsync(string email, string password);
     }
 }

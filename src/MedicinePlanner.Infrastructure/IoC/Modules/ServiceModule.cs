@@ -17,6 +17,10 @@ namespace MedicinePlanner.Infrastructure.IoC.Modules
                 .Where(x => x.IsAssignableTo<IService>())
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
+
+            builder.RegisterType<Encypter>()
+                .As<IEncrypter>()
+                .SingleInstance();
         }
     }
 }
