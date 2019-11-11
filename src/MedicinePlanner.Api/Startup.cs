@@ -34,6 +34,9 @@ namespace MedicinePlanner.Api
             services.AddOptions();
             services.AddControllers(); //older than obove scoped's
 
+            services.AddAuthorization(x => x.AddPolicy("admin", p => p.RequireRole("admin")));
+            services.AddAuthorization(x => x.AddPolicy("user", p => p.RequireRole("user")));
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
