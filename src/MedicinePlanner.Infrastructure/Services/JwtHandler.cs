@@ -46,7 +46,7 @@ namespace MedicinePlanner.Infrastructure.Services
             return new JwtDto
             {
                 Token = token,
-                Expiry = expires.ToTimestamp()
+                Expires = expires.ToTimestamp()
             };
         }
     }

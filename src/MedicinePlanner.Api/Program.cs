@@ -9,7 +9,6 @@ namespace MedicinePlanner.Api
     {
         public static void Main(string[] args)
         {
-            //CreateHostBuilder(args).Build().Run();
             var host = Host.CreateDefaultBuilder(args)
                 .UseServiceProviderFactory(new AutofacServiceProviderFactory())
                 .ConfigureWebHostDefaults(webHostBuilder => {
@@ -22,12 +21,5 @@ namespace MedicinePlanner.Api
 
             host.Run();
         }
-
-        // public static IHostBuilder CreateHostBuilder(string[] args) =>
-        //     Host.CreateDefaultBuilder(args)
-        //         .ConfigureWebHostDefaults(webBuilder =>
-        //         {
-        //             webBuilder.UseStartup<Startup>();
-        //         });
     }
 }
