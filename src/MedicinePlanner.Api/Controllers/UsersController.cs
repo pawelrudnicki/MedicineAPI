@@ -1,10 +1,7 @@
 ﻿using System.Threading.Tasks;
 using MedicinePlanner.Infrastructure.Commands;
 using MedicinePlanner.Infrastructure.Commands.Users;
-using MedicinePlanner.Infrastructure.DTO;
 using MedicinePlanner.Infrastructure.Services;
-using MedicinePlanner.Infrastructure.Settings;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicinePlanner.Api.Controllers
@@ -20,7 +17,7 @@ namespace MedicinePlanner.Api.Controllers
             _commandDispatcher = commandDispatcher;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("{email}")]
         public async Task<IActionResult> Get(string email)
         {

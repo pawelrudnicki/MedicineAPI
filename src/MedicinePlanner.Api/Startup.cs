@@ -33,9 +33,12 @@ namespace MedicinePlanner.Api
             services.AddMvc();
             services.AddOptions();
             services.AddControllers(); //older than obove scoped's
+            services.AddMvc();
 
             services.AddAuthorization(x => x.AddPolicy("admin", p => p.RequireRole("admin")));
             services.AddAuthorization(x => x.AddPolicy("user", p => p.RequireRole("user")));
+            
+            services.AddMemoryCache();
 
             services.AddAuthentication(options =>
             {
