@@ -41,7 +41,7 @@ namespace MedicinePlanner.Infrastructure.Services
             throw new Exception("Invalid credentials.");
         }
 
-        public async Task RegisterAsync(string email, string password, string name, string role)
+        public async Task RegisterAsync(Guid userId, string email, string password, string name, string role)
         {
             var user = await _userRepostory.GetAsync(email);
             if (user != null)
@@ -51,7 +51,7 @@ namespace MedicinePlanner.Infrastructure.Services
 
             var salt = _encrypter.GetSalt(password);
             var hash = _encrypter.GetHash(password, salt);
-            user = new User(email, password, hash, name, role);
+            user = new User(userId, email, password, hash, name, role);
             await _userRepostory.AddAsync(user);
         }
     }

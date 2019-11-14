@@ -23,9 +23,9 @@ namespace MedicinePlanner.Core.Domain
         {
         }
 
-        public User(string email, string password, string salt, string name, string role)
+        public User(Guid userId, string email, string password, string salt, string name, string role)
         {
-            Id = Guid.NewGuid();
+            Id = userId;
             SetEmail(email);
             SetPassword(password);
             SetName(name);

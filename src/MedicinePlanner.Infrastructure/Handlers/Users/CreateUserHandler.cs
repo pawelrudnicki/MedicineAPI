@@ -15,7 +15,7 @@ namespace MedicinePlanner.Infrastructure.Handlers.Users
         }
         public async Task HandleAsync(CreateUser command)
         {
-            await _userService.RegisterAsync(command.Email, command.Password, command.Name, command.Role);
+            await _userService.RegisterAsync(command.UserId, command.Email, command.Password, command.Name, command.Role);
         }
     }
 }

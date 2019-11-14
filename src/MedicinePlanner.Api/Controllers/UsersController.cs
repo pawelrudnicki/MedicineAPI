@@ -17,7 +17,6 @@ namespace MedicinePlanner.Api.Controllers
             _commandDispatcher = commandDispatcher;
         }
 
-        //[Authorize]
         [HttpGet("{email}")]
         public async Task<IActionResult> Get(string email)
         {
