@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using MedicinePlanner.Core.Domain;
@@ -24,6 +25,12 @@ namespace MedicinePlanner.Infrastructure.Services
         {
             var user = await _userRepostory.GetAsync(email);
             return _mapper.Map<User, UserDto>(user);
+        }
+
+        public async Task<IEnumerable<UserDto>> GetAllAsync()
+        {
+            var users = await _userRepostory.GetAllAsync();
+            return _mapper.Map<IEnumerable<UserDto>>(users);
         }
 
         public async Task LoginAsync(string email, string password)

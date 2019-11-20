@@ -1,8 +1,0 @@
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\bin\Debug\netstandard2.0\MedicinePlanner.Core.deps.json
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\bin\Debug\netstandard2.0\MedicinePlanner.Core.dll
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\bin\Debug\netstandard2.0\MedicinePlanner.Core.pdb
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\obj\Debug\netstandard2.0\MedicinePlanner.Core.csprojAssemblyReference.cache
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\obj\Debug\netstandard2.0\MedicinePlanner.Core.AssemblyInfoInputs.cache
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\obj\Debug\netstandard2.0\MedicinePlanner.Core.AssemblyInfo.cs
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\obj\Debug\netstandard2.0\MedicinePlanner.Core.dll
-C:\Users\Pawel\Desktop\GIT\MedicinePlanner\src\MedicinePlanner.Core\obj\Debug\netstandard2.0\MedicinePlanner.Core.pdb
