@@ -57,6 +57,7 @@ namespace MedicinePlanner.Core.Domain
             }
 
             Email = email.ToLowerInvariant();
+            UpdatedAt = DateTime.UtcNow;
         }
 
         public void SetPassword(string password) 
@@ -79,6 +80,7 @@ namespace MedicinePlanner.Core.Domain
             }
 
             Password = password;
+            UpdatedAt = DateTime.UtcNow;
         }
 
         public void SetRole(string role) 
@@ -96,6 +98,7 @@ namespace MedicinePlanner.Core.Domain
             }
 
             Role = role;
+            UpdatedAt = DateTime.UtcNow;
         }
     }
 }
