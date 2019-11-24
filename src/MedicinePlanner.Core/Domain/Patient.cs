@@ -11,7 +11,6 @@ namespace MedicinePlanner.Core.Domain
             "0 rh-", "0 rh+", "a rh-", "a rh+", "b rh-", "b rh+", "ab rh-", "ab rh+"
         };
         private ISet<Medicine> _medicines = new HashSet<Medicine>();
-        public Guid Id { get; protected set; }
         public Guid UserId { get; protected set; }
         public String Name { get; protected set; }
         public int Age { get; protected set; }
