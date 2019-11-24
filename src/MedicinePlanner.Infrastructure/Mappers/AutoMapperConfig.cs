@@ -10,6 +10,9 @@ namespace MedicinePlanner.Infrastructure.Mappers
             => new MapperConfiguration(cfg => 
             {
                 cfg.CreateMap<User, UserDto>();
+                cfg.CreateMap<Patient, PatientDto>();
+                cfg.CreateMap<Patient, PatientDetailsDto>();
+                cfg.CreateMap<Medicine, MedicineDto>();
             })
             .CreateMapper();
     }

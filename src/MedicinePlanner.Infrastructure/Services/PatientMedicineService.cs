@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using AutoMapper;
 using MedicinePlanner.Core.Repositories;
 
 namespace MedicinePlanner.Infrastructure.Services
@@ -8,11 +9,14 @@ namespace MedicinePlanner.Infrastructure.Services
     {
         private readonly IPatientRepository _patientRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
-        public PatientMedicineService(IPatientRepository patientRepository, IUserRepository userRepository)
+        public PatientMedicineService(IPatientRepository patientRepository, 
+            IUserRepository userRepository, IMapper mapper)
         {
             _patientRepository = patientRepository;
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
         public async Task AddAsync(Guid userId, string name, decimal price, double dosage, string accessibility)

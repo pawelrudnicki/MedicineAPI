@@ -1,32 +1,36 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using MedicinePlanner.Core.Domain;
 using MedicinePlanner.Core.Repositories;
+using MedicinePlanner.Infrastructure.DTO;
 
 namespace MedicinePlanner.Infrastructure.Services
 {
     public class PatientService : IPatientService
     {
-        //NEED TO ADD MAPPER AND PATIENT DTO!!!!
         private readonly IPatientRepository _patientRepository;
         private readonly IUserRepository _userRepository;
+        private readonly IMapper _mapper;
 
-        public PatientService(IPatientRepository patientRepository, IUserRepository userRepository)
+        public PatientService(IPatientRepository patientRepository, 
+            IUserRepository userRepository, IMapper mapper)
         {
             _patientRepository = patientRepository;
             _userRepository = userRepository;
+            _mapper = mapper;
         }
     
-        public async Task<Patient> GetAsync(Guid userId)
+        public async Task<PatientDetailsDto> GetAsync(Guid userId)
         {
             var patient = await _patientRepository.GetAsync(userId);
-            return patient;
+            return _mapper.Map<Patient, PatientDetailsDto>(patient);
         }
-        public async Task<IEnumerable<Patient>> BrowseAsync()
+        public async Task<IEnumerable<PatientDto>> BrowseAsync()
         {
             var patients = await _patientRepository.GetAllAsync();
-            return patients;
+            return _mapper.Map<IEnumerable<Patient>, IEnumerable<PatientDto>>(patients);
         }
 
         public async Task CreateAsync(Guid userId)
