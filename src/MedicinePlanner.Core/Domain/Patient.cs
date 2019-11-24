@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MedicinePlanner.Core.Domain
 {
@@ -18,7 +19,7 @@ namespace MedicinePlanner.Core.Domain
         public Double Weight { get; protected set; }
         public Double Height { get; protected set; }
         public DateTime UpdatedAt { get; protected set; }
-        public IEnumerable<Medicine> Medicines  //todo - sprawdzic czy nie trzeba stworzyc osobnej klasy
+        public IEnumerable<Medicine> Medicines
         {
             get { return _medicines; }
             set { _medicines = new HashSet<Medicine>(value); }
@@ -32,6 +33,23 @@ namespace MedicinePlanner.Core.Domain
         {
             UserId = user.Id;
             Name = user.Name;
+        }
+
+        public void AddMedicine(string name, decimal price, double dosage, string accessibility)
+        {
+            _medicines.Add(Medicine.Create(Guid.NewGuid(), name, price, dosage, accessibility));
+            UpdatedAt = DateTime.UtcNow;
+        }
+
+        public void DeleteMedicine(Guid id)
+        {
+            var medicine = Medicines.SingleOrDefault(x => x.Id == id);
+            if (medicine == null)
+            {
+                throw new Exception($"Medicine with id: '{id}' for patient: '{Name}' was not found.");
+            }
+            _medicines.Remove(medicine);
+            UpdatedAt = DateTime.UtcNow;
         }
 
         public void SetAge(int age)

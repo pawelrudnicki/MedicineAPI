@@ -22,7 +22,7 @@ namespace MedicinePlanner.Core.Domain
         {
         }
 
-        public Medicine(Guid id, string name, decimal price, double dosage, string accessibility)
+        protected Medicine(Guid id, string name, decimal price, double dosage, string accessibility)
         {
             Id = id;
             SetName(name);
@@ -87,5 +87,8 @@ namespace MedicinePlanner.Core.Domain
             Accessibility = accessibility;
             UpdatedAt = DateTime.UtcNow;
         }
+
+        public static Medicine Create(Guid id, string name, decimal price, double dosage, string accessibility)
+            => new Medicine(id, name, price, dosage, accessibility);
     }
 }
