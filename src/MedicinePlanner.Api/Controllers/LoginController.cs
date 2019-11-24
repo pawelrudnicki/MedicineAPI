@@ -8,21 +8,22 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace MedicinePlanner.Api.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : ApiControllerBase
     {
         private readonly IMemoryCache _cache;
-        private readonly ICommandDispatcher _commandDispatcher;
 
-        public LoginController(IMemoryCache cache, ICommandDispatcher commandDispatcher)
+        public LoginController(IMemoryCache cache, 
+            ICommandDispatcher commandDispatcher)
+            : base(commandDispatcher)
         {
             _cache = cache;
-            _commandDispatcher = commandDispatcher;
         }
         
+        [HttpPost]
         public async Task<IActionResult> Post([FromBody] Login command)
         {
             command.TokenId = Guid.NewGuid();
-            await _commandDispatcher.DispatchAsync(command);
+            await DispatchAsync(command);
             var jwt = _cache.GetJwt(command.TokenId);
 
             return Json(jwt);

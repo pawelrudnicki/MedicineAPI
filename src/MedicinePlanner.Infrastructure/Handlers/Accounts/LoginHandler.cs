@@ -11,7 +11,7 @@ namespace MedicinePlanner.Infrastructure.Handlers.Users
     {
         private readonly IUserService _userService;
         private readonly IJwtHandler _jwtHandler;
-        private readonly IMemoryCache _cache;  //in future use Redis Cache or mem cached service
+        private readonly IMemoryCache _cache; 
 
         public LoginHandler(IUserService userService, IJwtHandler jwtHandler, IMemoryCache cache)
         {
