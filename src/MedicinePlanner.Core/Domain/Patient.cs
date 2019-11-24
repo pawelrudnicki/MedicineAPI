@@ -41,12 +41,12 @@ namespace MedicinePlanner.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public void DeleteMedicine(Guid id)
+        public void DeleteMedicine(string name)
         {
-            var medicine = Medicines.SingleOrDefault(x => x.Id == id);
+            var medicine = Medicines.SingleOrDefault(x => x.Name == name);
             if (medicine == null)
             {
-                throw new Exception($"Medicine with id: '{id}' for patient: '{Name}' was not found.");
+                throw new Exception($"Medicine with name: '{name}' for patient: '{Name}' was not found.");
             }
             _medicines.Remove(medicine);
             UpdatedAt = DateTime.UtcNow;

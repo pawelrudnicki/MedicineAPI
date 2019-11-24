@@ -22,6 +22,8 @@ namespace MedicinePlanner.Core.Domain
         {
         }
 
+        //todo - additional field quantity???
+
         protected Medicine(Guid id, string name, decimal price, double dosage, string accessibility)
         {
             Id = id;
