@@ -1,7 +1,9 @@
 using System;
 using System.Threading.Tasks;
 using MedicinePlanner.Infrastructure.Commands;
+using MedicinePlanner.Infrastructure.Commands.Patients;
 using MedicinePlanner.Infrastructure.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MedicinePlanner.Api.Controllers
@@ -36,9 +38,22 @@ namespace MedicinePlanner.Api.Controllers
             return Json(patient);
         }
 
-        //todo 
-        /**
-            create, update, delete -> patient ofc.
-        **/
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody]CreatePatient command)
+        {
+            await DispatchAsync(command);
+            return NoContent();
+        }
+
+        //todo - ewentualny put (jak czas pozwoli xD)
+
+        [Authorize]
+        [HttpDelete]
+        public async Task<IActionResult> Delete([FromBody]DeletePatient command)
+        {
+            await DispatchAsync(command);
+            return NoContent();
+        }
     }
 }
