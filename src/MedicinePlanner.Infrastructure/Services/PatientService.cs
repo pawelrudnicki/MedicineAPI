@@ -37,6 +37,9 @@ namespace MedicinePlanner.Infrastructure.Services
         {
             var user = await _userRepository.GetAsync(userId);
             var patient = await _patientRepository.GetAsync(userId);
+            if (user == null) {
+                throw new Exception($"User with user id: '{userId}' does not exist.");
+            }
             if (patient != null)
             {
                 throw new Exception($"Patient with user id: '{userId}' already exists.");

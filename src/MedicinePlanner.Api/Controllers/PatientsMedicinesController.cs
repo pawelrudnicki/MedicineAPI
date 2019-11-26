@@ -19,7 +19,7 @@ namespace MedicinePlanner.Api.Controllers
             _patientService = patientService;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]CreatePatientMedicine command)
         {
@@ -27,7 +27,7 @@ namespace MedicinePlanner.Api.Controllers
             return NoContent();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete]
         public async Task<IActionResult> Delete([FromBody]DeletePatientMedicine command)
         {

@@ -38,7 +38,7 @@ namespace MedicinePlanner.Api.Controllers
             return Json(patient);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> Post([FromBody]CreatePatient command)
         {
@@ -48,7 +48,7 @@ namespace MedicinePlanner.Api.Controllers
 
         //todo - ewentualny put (jak czas pozwoli xD)
 
-        [Authorize]
+        //[Authorize]
         [HttpDelete]
         public async Task<IActionResult> Delete([FromBody]DeletePatient command)
         {

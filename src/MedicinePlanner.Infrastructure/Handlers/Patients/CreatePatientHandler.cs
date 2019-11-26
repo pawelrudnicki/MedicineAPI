@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using MedicinePlanner.Infrastructure.Commands;
 using MedicinePlanner.Infrastructure.Commands.Patients;
@@ -15,6 +16,7 @@ namespace MedicinePlanner.Infrastructure.Handlers.Patients
         }
         public async Task HandleAsync(CreatePatient command)
         {
+            Console.WriteLine($"xD: '{command.UserId}'");
             await _patientService.CreateAsync(command.UserId);
         }
     }
