@@ -10,6 +10,7 @@ namespace MedicinePlanner.Infrastructure.Repositories
     public class PatientRepository : IPatientRepository
     {
         private static readonly ISet<Patient> _patients = new HashSet<Patient>();
+        
         public async Task<Patient> GetAsync(Guid userId)
             => await Task.FromResult(_patients.SingleOrDefault(x => x.UserId == userId));
 

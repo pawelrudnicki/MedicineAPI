@@ -16,8 +16,8 @@ namespace MedicinePlanner.Infrastructure.Handlers.Patients
         }
         public async Task HandleAsync(CreatePatient command)
         {
-            Console.WriteLine($"xD: '{command.UserId}'");
-            await _patientService.CreateAsync(command.UserId);
+            await _patientService.CreateAsync(command.UserId, command.Age, 
+                command.BloodType, command.Weight, command.Height);
         }
     }
 }

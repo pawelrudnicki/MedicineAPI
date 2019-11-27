@@ -12,12 +12,14 @@ namespace MedicinePlanner.Core.Domain
         };
         private ISet<Medicine> _medicines = new HashSet<Medicine>();
         public Guid UserId { get; protected set; }
-        public String Name { get; protected set; }
+        public string Name { get; protected set; }
         public int Age { get; protected set; }
-        public String BloodType { get; protected set; }
-        public Double Weight { get; protected set; }
-        public Double Height { get; protected set; }
+        public string BloodType { get; protected set; }
+        public double Weight { get; protected set; }
+        public double Height { get; protected set; }
+        public DateTime CreatedAt { get; protected set; }
         public DateTime UpdatedAt { get; protected set; }
+        
         public IEnumerable<Medicine> Medicines
         {
             get { return _medicines; }
@@ -28,10 +30,15 @@ namespace MedicinePlanner.Core.Domain
         {
         }
 
-        public Patient(User user)
+        public Patient(User user, int age, string bloodType, double weight, double height)
         {
             UserId = user.Id;
             Name = user.Name;
+            SetAge(age);
+            SetBloodType(bloodType);
+            SetWeight(weight);
+            SetHeight(height);
+            CreatedAt = DateTime.UtcNow;
         }
 
         public void AddMedicine(string name, decimal price, double dosage, string accessibility)
@@ -85,7 +92,7 @@ namespace MedicinePlanner.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public void SetWeight(Double weight)
+        public void SetWeight(double weight)
         {
             if (weight <= 0)
             {
@@ -101,7 +108,7 @@ namespace MedicinePlanner.Core.Domain
             UpdatedAt = DateTime.UtcNow;
         }
 
-        public void SetHeight(Double height)
+        public void SetHeight(double height)
         {
             if (height <= 0)
             {

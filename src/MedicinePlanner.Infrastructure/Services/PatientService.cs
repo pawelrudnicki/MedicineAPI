@@ -27,13 +27,14 @@ namespace MedicinePlanner.Infrastructure.Services
             var patient = await _patientRepository.GetAsync(userId);
             return _mapper.Map<Patient, PatientDetailsDto>(patient);
         }
+
         public async Task<IEnumerable<PatientDto>> BrowseAsync()
         {
             var patients = await _patientRepository.GetAllAsync();
             return _mapper.Map<IEnumerable<Patient>, IEnumerable<PatientDto>>(patients);
         }
 
-        public async Task CreateAsync(Guid userId)
+        public async Task CreateAsync(Guid userId, int age, string bloodType, double weight, double height)
         {
             var user = await _userRepository.GetAsync(userId);
             var patient = await _patientRepository.GetAsync(userId);
@@ -44,7 +45,7 @@ namespace MedicinePlanner.Infrastructure.Services
             {
                 throw new Exception($"Patient with user id: '{userId}' already exists.");
             }
-            patient = new Patient(user);
+            patient = new Patient(user, age, bloodType, weight, height);
             await _patientRepository.AddAsync(patient);
         }
 

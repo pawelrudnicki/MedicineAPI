@@ -10,7 +10,7 @@ namespace MedicinePlanner.Infrastructure.Services
     {
         Task<PatientDetailsDto> GetAsync(Guid userId);
         Task<IEnumerable<PatientDto>> BrowseAsync();
-        Task CreateAsync(Guid userId);
+        Task CreateAsync(Guid userId, int age, string bloodType, double weight, double height);
         Task DeleteAsync(Guid userId);
     }
 }
