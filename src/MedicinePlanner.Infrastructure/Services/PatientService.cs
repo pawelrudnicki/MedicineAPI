@@ -37,10 +37,11 @@ namespace MedicinePlanner.Infrastructure.Services
         public async Task CreateAsync(Guid userId, int age, string bloodType, double weight, double height)
         {
             var user = await _userRepository.GetAsync(userId);
-            var patient = await _patientRepository.GetAsync(userId);
-            if (user == null) {
+            if (user == null) 
+            {
                 throw new Exception($"User with user id: '{userId}' does not exist.");
             }
+            var patient = await _patientRepository.GetAsync(userId);
             if (patient != null)
             {
                 throw new Exception($"Patient with user id: '{userId}' already exists.");

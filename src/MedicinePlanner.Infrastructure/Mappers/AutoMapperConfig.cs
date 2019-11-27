@@ -13,6 +13,7 @@ namespace MedicinePlanner.Infrastructure.Mappers
                 cfg.CreateMap<Patient, PatientDto>();
                 cfg.CreateMap<Patient, PatientDetailsDto>();
                 cfg.CreateMap<Medicine, MedicineDto>();
+                cfg.CreateMap<Doctor, DoctorDto>();
             })
             .CreateMapper();
     }
