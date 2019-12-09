@@ -1,6 +1,7 @@
 using System.Text;
 using Autofac;
 using MedicinePlanner.Infrastructure.IoC;
+using MedicinePlanner.Infrastructure.Mongo;
 using MedicinePlanner.Infrastructure.Services;
 using MedicinePlanner.Infrastructure.Settings;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -87,6 +88,7 @@ namespace MedicinePlanner.Api
             app.UseAuthentication();
             app.UseAuthorization();
 
+            MongoConfigurator.Initialize();
             var generalSettings = app.ApplicationServices.GetService<GeneralSettings>();
             if (generalSettings.SeedData)
             {
