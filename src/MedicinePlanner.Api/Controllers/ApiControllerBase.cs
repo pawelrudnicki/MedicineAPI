@@ -19,10 +19,10 @@ namespace MedicinePlanner.Api.Controllers
 
         protected async Task DispatchAsync<T>(T command) where T : ICommand
         {
-            if (command is IAuthenticatedCommand authenticatedCommand)
-            {
-                authenticatedCommand.UserId = UserId;
-            }
+            // if (command is IAuthenticatedCommand authenticatedCommand)
+            // {
+            //     authenticatedCommand.UserId = UserId;
+            // }
             await _commandDispatcher.DispatchAsync(command);
         }
     }

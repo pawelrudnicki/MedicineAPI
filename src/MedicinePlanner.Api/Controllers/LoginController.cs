@@ -25,7 +25,6 @@ namespace MedicinePlanner.Api.Controllers
             command.TokenId = Guid.NewGuid();
             await DispatchAsync(command);
             var jwt = _cache.GetJwt(command.TokenId);
-
             return Json(jwt);
         }
     }

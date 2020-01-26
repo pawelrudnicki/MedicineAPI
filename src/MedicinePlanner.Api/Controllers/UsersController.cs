@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using MedicinePlanner.Infrastructure.Commands;
 using MedicinePlanner.Infrastructure.Commands.Users;
 using MedicinePlanner.Infrastructure.Services;
@@ -39,6 +40,12 @@ namespace MedicinePlanner.Api.Controllers
         {
             await DispatchAsync(command);
             return Created($"users/{command.Email}", null);
+        }
+
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> Delete(Guid userId) {
+            await _userService.DeleteAsync(userId);
+            return NoContent();
         }
     }
 }

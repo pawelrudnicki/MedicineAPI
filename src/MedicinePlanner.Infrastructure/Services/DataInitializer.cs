@@ -9,21 +9,25 @@ namespace MedicinePlanner.Infrastructure.Services
     public class DataInitializer : IDataInitializer
     {
         private readonly IUserService _userService;
+        private readonly IPatientService _patientService;
         private readonly ILogger<DataInitializer> _logger;
 
-        public DataInitializer(IUserService userService, ILogger<DataInitializer> logger)
+        public DataInitializer(IUserService userService, ILogger<DataInitializer> logger, IPatientService patientService)
         {
             _userService = userService;
             _logger = logger;
+            _patientService = patientService;
         }
 
         public async Task SeedAsync()
         { 
             var users = await _userService.GetAllAsync();
+            var patients = await _patientService.BrowseAsync();
             if (users.Any())
             {
                 return;
             }
+
             _logger.LogTrace("Initializing data...");
             var tasks = new List<Task>();
             for(var i = 1; i <= 10; i++)

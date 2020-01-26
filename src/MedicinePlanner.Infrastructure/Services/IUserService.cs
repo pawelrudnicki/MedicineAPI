@@ -11,5 +11,6 @@ namespace MedicinePlanner.Infrastructure.Services
         Task <IEnumerable<UserDto>> GetAllAsync();
         Task RegisterAsync(Guid userId, string email, string password, string name, string role);
         Task LoginAsync(string email, string password);
+        Task DeleteAsync(Guid userId);
     }
 }

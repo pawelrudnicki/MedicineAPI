@@ -15,14 +15,12 @@ namespace MedicinePlanner.Infrastructure.Repositories
             _database = database;
         }
 
-        //=> await Users.AsQueryable().FirstOrDefaultAsync(x => x.Email == email);
-
         public async Task<User> GetAsync(Guid id)
             => await Users.Find(x => x.Id == id).SingleOrDefaultAsync();
 
-        public async Task<User> GetAsync(string email)
+        public async Task<User> GetAsync(string email) 
             => await Users.Find(x => x.Email == email).SingleOrDefaultAsync();
-
+    
         public async Task<IEnumerable<User>> GetAllAsync()
             => await Users.AsQueryable().ToListAsync();
         public async Task AddAsync(User user)
@@ -31,8 +29,11 @@ namespace MedicinePlanner.Infrastructure.Repositories
         public async Task UpdateAsync(User user)
             => await Users.ReplaceOneAsync(x => x.Id == user.Id, user); 
 
-        public async Task DeleteAsync(Guid id)
-            => await Users.DeleteOneAsync(x => x.Id == id);
+        public async Task DeleteAsync(Guid id) {
+            Console.WriteLine($"Deleting user with id: {id}");
+            await Users.DeleteOneAsync(x => x.Id == id);
+        }
+        
 
         private IMongoCollection<User> Users => _database.GetCollection<User>("Users");
     }

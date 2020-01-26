@@ -56,7 +56,7 @@ namespace MedicinePlanner.Api
                 {
                     ValidateIssuer = true,
                     ValidateAudience = false,
-                    ValidIssuer = "https://localhost:5000",
+                    ValidIssuer = "http://localhost:5000",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("super_secret_key_123!"))
                 };
             });
